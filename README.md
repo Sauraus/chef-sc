@@ -8,4 +8,6 @@ default['sc']['server']['api_user'] = nil
 default['sc']['server']['api_key'] = nil
 ```
 You can install multiple instances of the SauceConnect agent by overriding:
-```default['sc']['server']['ports'] = ['4445']```
+```
+default['sc']['server']['ports'] = ['4445']
+```
