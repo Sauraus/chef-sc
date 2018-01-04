@@ -19,7 +19,8 @@ ExecStart = /usr/local/bin/sc \
 --logfile - \
 --pidfile "/tmp/sauceconnect_%i.pid" \
 --se-port "%i" \
---no-remove-colliding-tunnels
+--no-remove-colliding-tunnels \
+-B all
 
 [Install]
 WantedBy=multi-user.target
