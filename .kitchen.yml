@@ -25,3 +25,8 @@ suites:
         server:
           api_user: 'YOUR_USER_NAME_HERE'
           api_key: 'YOUR_API_KEY_HERE'
+          cmd_options: [
+                '--se-port "%i"',
+                '--logfile -',
+                '--no-remove-colliding-tunnels'
+              ]

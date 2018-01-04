@@ -16,11 +16,9 @@ Environment=SAUCE_USERNAME=<%= @sauce_username %>
 Environment=SAUCE_ACCESS_KEY=<%= @sauce_access_key %>
 
 ExecStart = /usr/local/bin/sc \
---logfile - \
---pidfile "/tmp/sauceconnect_%i.pid" \
---se-port "%i" \
---no-remove-colliding-tunnels \
--B all
+<% @sc_cmd_options.each do |opt| %>
+  <%= opt %> \
+<% end %>
 
 [Install]
 WantedBy=multi-user.target

@@ -47,6 +47,7 @@ template '/etc/systemd/system/sc@.service' do
   variables({
     sauce_username: node['sc']['server']['api_user'],
     sauce_access_key: node['sc']['server']['api_key'],
+    sc_cmd_options: node['sc']['server']['cmd_options']
              })
   notifies :restart, 'service[sc]', :delayed
 end
