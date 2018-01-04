@@ -27,6 +27,12 @@ default['sc']['server']['checksum'] = 'b61557580d3496f80421914af897b583ed1117493
 
 default['sc']['server']['ports'] = ['4445']
 
-# Typically overridden in the role
+# NOTE: We do not deep merge these in the recipe eg. you must include these in your override if you need these.
+default['sc']['server']['cmd_options'] =
+  ['--se-port "%i"',
+   '--logfile -'
+  ]
+
+# Typically overridden in the policy file
 default['sc']['server']['api_user'] = nil
 default['sc']['server']['api_key'] = nil
