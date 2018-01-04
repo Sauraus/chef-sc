@@ -1,3 +1,7 @@
+##0.3.0
+* Add reload of systemd daemon to pickup config changes
+* --pidfile command line option is a must
+
 ##0.2.0
 * Added ability to customize Sauce Connect command line parameters
 

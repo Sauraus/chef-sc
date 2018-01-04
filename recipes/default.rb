@@ -49,7 +49,7 @@ template '/etc/systemd/system/sc@.service' do
     sauce_access_key: node['sc']['server']['api_key'],
     sc_cmd_options: node['sc']['server']['cmd_options']
              })
-  notifies :restart, 'service[sc]', :delayed
+  notifies :run, 'execute[systemctl daemon-reload]', :delayed
 end
 
 directory '/etc/systemd/system/sc.service.wants' do
@@ -61,6 +61,13 @@ node['sc']['server']['ports'].each do |port|
     to '/etc/systemd/system/sc@.service'
     notifies :restart, 'service[sc]', :delayed
   end
+end
+
+# The Chef (13.6.4) systemd_unit resource does handle a reload and thus we run the command.
+execute 'systemctl daemon-reload' do
+  action :nothing
+  command 'systemctl daemon-reload'
+  notifies :restart, 'service[sc]', :delayed
 end
 
 service 'sc' do

@@ -30,7 +30,8 @@ default['sc']['server']['ports'] = ['4445']
 # NOTE: We do not deep merge these in the recipe eg. you must include these in your override if you need these.
 default['sc']['server']['cmd_options'] =
   ['--se-port "%i"',
-   '--logfile -'
+   '--logfile -',
+   '--pidfile "/tmp/sc_%i.pid"'
   ]
 
 # Typically overridden in the policy file
